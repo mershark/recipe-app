@@ -1,0 +1,52 @@
+.add-food-button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.add-food-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Styling for the page title */
+.food-page-title {
+  display: flex;
+  color: #333;
+  justify-content: center;
+  font-size: 25px;
+}
+
+/* Styling for the food table */
+.food-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+/* Styling for table headers */
+.food-input-title {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Styling for table data cells */
+.food-input {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Styling for the "Delete" button */
+.delete {
+  background-color: red;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}

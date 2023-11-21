@@ -2,6 +2,8 @@
 @import "signup";
 @import "forgot_password";
 @import "resend_confirmation";
+@import "food";
+@import "add_new_food";
 
 a {
   text-decoration: none;
