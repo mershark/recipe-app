@@ -1,0 +1,49 @@
+.Add-food-title {
+  font-size: 25px;
+}
+
+.food-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: none;
+  text-align: center;
+}
+
+.food-input-container {
+  display: flex;
+  margin-bottom: 20px;
+  flex-direction: row;
+  align-items: center;
+}
+
+.border input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  margin-top: 5px;
+}
+
+.Create-food-button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  width: 500px;
+  margin-bottom: 20px;
+}
+
+.form-select {
+  box-sizing: border-box;
+  border: 1px solid black;
+  padding-left: 5px;
+  color: #999;
+}
+
+.form-select option {
+  color: black;
+}
