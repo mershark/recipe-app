@@ -4,6 +4,7 @@
 @import "resend_confirmation";
 @import "food";
 @import "add_new_food";
+@import "recipes";
 
 a {
   text-decoration: none;

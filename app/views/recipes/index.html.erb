@@ -1,0 +1,20 @@
+<h3 class="food-page-title">All Recipes</h3>
+<div class="add-food-container">
+  <%= link_to 'Create New Recipe', new_recipe_path, class: 'add-food-button' %></div>
+</div>
+<div>
+  <% @recipes.each do |recipe| %>
+    <div class="recipe-container">
+      <div class="single-recipe">
+        <h3 class="recipe-header">
+          <%= link_to recipe.name, recipe %>
+        </h3>
+        <%= link_to 'Remove', recipe_path(recipe), data: { turbo_method: :delete, confirm: 'Please confirm deletion?' }, class: "recipe-delete" %>
+      </div>
+
+      <div class="recipe-desc">
+        <%= recipe.description %>
+      </div>      
+    </div>
+  <% end %>
+</div>
