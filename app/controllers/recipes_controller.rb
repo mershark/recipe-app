@@ -22,12 +22,12 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:id])
-    
-    if @recipe.user != current_user
-      redirect_to recipes_path, alert: "You cannot delete a recipe you didn't create"
+
+    if @recipe.user == current_user
+      @recipe.destroy
+      redirect_to recipes_path, notice: 'Recipe was successfully deleted.'
     else
-      @recipe.destroy  
-      redirect_to recipes_path, notice: "Recipe was successfully deleted." 
+      redirect_to recipes_path, alert: "You cannot delete a recipe you didn't create"
     end
   end
 

@@ -10,9 +10,11 @@
         <p>Total food items: <%= recipe.foods.count %></p>
         <p>Total price: $<%= recipe.foods.sum(:price) %></p>
       </div>
-      <% if recipe.user == current_user %>
-        <%= link_to 'Remove', recipe_path(recipe), data: { turbo_method: :delete, confirm: 'Please confirm deletion?' }, class: "recipe-remove" %>
-      <% end %>
+      <div>
+        <% if recipe.user == current_user %>
+          <%= link_to 'Remove', recipe_path(recipe), data: { turbo_method: :delete, confirm: 'Please confirm deletion?' }, class: "recipe-remove" %>
+        <% end %>
+      </div>
     </div>
   <% end %>
 </div>
