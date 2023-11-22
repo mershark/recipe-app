@@ -26,6 +26,11 @@ class RecipesController < ApplicationController
     redirect_to recipes_url, notice: 'Recipe was successfully deleted.'
   end
 
+  def public
+    @recipes = Recipe.where(public: true).order(created_at: :desc)
+    render 'public'
+  end
+
   private
 
   def recipe_params

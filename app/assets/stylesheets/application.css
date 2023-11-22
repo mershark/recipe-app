@@ -5,6 +5,7 @@
 @import "food";
 @import "add_new_food";
 @import "recipes";
+@import "public_recipes";
 
 a {
   text-decoration: none;
@@ -14,4 +15,18 @@ a {
 body {
   margin-left: 200px;
   margin-right: 200px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header a {
+  color: black;
+  text-decoration: none;
+  padding: 5px 10px;
+  margin-right: 10px;
+  background-color: #ccc;
 }

@@ -1,0 +1,16 @@
+<div class="public-recipes">
+  <h3 class="Public-recipe-h3">Public Recipes</h3>
+  <% @recipes.each do |recipe| %>
+    <div class='recipe-box'>
+      <div class='recipe-details'>
+        <%= link_to "#{recipe.name}", recipe_path(recipe.id), class: 'recipe-name' %>
+        <p class='user-name'>By: <%= recipe.user.name %></p>
+      </div>
+      <div class='recipe-totals'>
+        <p>Total food items: <%= recipe.foods.count %></p>
+        <p>Total price: $<%= recipe.foods.sum(:price) %></p>
+      </div>
+      <%= link_to 'Remove', recipe_path(recipe), data: { turbo_method: :delete, confirm: 'Please confirm deletion?' }, class: "recipe-remove" %>
+    </div>
+  <% end %>
+</div>
