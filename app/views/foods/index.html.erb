@@ -21,7 +21,9 @@
         <td class="food-input"><%= food.measurement_unit %></td>
         <td class="food-input"><%= food.price %></td>
         <td class="food-input">
+          <% if food.user == current_user %>
             <%= link_to 'Delete', food_path(food), data: { turbo_method: :delete, confirm: 'Please confirm deletion?' }, class: "delete" %>
+          <% end %>
         </td>
       </tr>
     <% end %>
