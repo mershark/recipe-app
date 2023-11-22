@@ -8,6 +8,9 @@ default: &default
 development:
   <<: *default
   database: recipe_app_development
+  host: localhost
+  username: postgres
+  password: 'password'
 
 test:
   <<: *default
