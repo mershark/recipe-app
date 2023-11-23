@@ -1,0 +1,47 @@
+.public-recipes {
+  text-align: center;
+}
+
+.Public-recipe-h3 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.recipe-box {
+  border: 3px solid black;
+  margin-bottom: 20px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.recipe-details {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.recipe-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.recipe-totals p {
+  margin-bottom: 5px;
+  margin-top: 0;
+  text-align: left;
+}
+
+.recipe-remove {
+  background-color: red;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  height: 14px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+}

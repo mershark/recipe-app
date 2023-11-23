@@ -22,8 +22,18 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:id])
-    @recipe.destroy
-    redirect_to recipes_url, notice: 'Recipe was successfully deleted.'
+
+    if @recipe.user == current_user
+      @recipe.destroy
+      redirect_to recipes_path, notice: 'Recipe was successfully deleted.'
+    else
+      redirect_to recipes_path, alert: "You cannot delete a recipe you didn't create"
+    end
+  end
+
+  def public
+    @recipes = Recipe.where(public: true).order(created_at: :desc)
+    render 'public'
   end
 
   private

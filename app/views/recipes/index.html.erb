@@ -9,7 +9,9 @@
         <h3 class="recipe-header">
           <%= link_to recipe.name, recipe %>
         </h3>
-        <%= link_to 'Remove', recipe_path(recipe), data: { turbo_method: :delete, confirm: 'Please confirm deletion?' }, class: "recipe-delete" %>
+        <% if recipe.user == current_user %>
+          <%= link_to 'Remove', recipe_path(recipe), data: { turbo_method: :delete, confirm: 'Please confirm deletion?' }, class: "recipe-delete" %>
+        <% end %>
       </div>
 
       <div class="recipe-desc">

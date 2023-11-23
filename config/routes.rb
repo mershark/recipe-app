@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "users#index"
 
+  get '/public_recipes', to: 'recipes#public'
   resources :foods, only: [:index, :new, :create, :destroy]
   resources :recipes, only: [:index, :show, :new, :create, :destroy]
 end
