@@ -1,6 +1,32 @@
-<h1><%= @recipe.name %></h1>
-<p>Preparation Time: <%= @recipe.preparation_time %> minutes</p>
-<p>Cooking Time: <%= @recipe.cooking_time %> minutes</p>
-<p>Description: <%= @recipe.description %></p>
-<p>Public: <%= @recipe.public ? 'Yes' : 'No' %></p>
-<p>Created by: <%= @recipe.user.email %></p> <!-- Assuming email exists in User -->
+<div id="recipe-show-container">
+  <h1 id="recipe-header"><%= @recipe.name %></h1>
+  <div id="recipe-show-box">
+    <div>
+      <p>Preparation Time: <%= @recipe.preparation_time %> minutes</p>
+      <p>Cooking Time: <%= @recipe.cooking_time %> minutes</p>
+      <p>Description: <%= @recipe.description %></p>  
+    </div>
+    <div>
+      <% if current_user == @recipe.user || @recipe.public %>
+        <%= form_for @recipe, url: recipe_path(@recipe), method: :patch, remote: true, html: { id: 'recipe-form' } do |f| %>
+          <%= f.label :public, 'Public' %>
+          <%= f.check_box :public, id: 'public-checkbox' %>
+          <%= f.submit 'Save', id: 'public-status-submit' %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+  $(document).on('change', '#public-checkbox', function() {
+    $('#public-status-submit').click();
+  });
+
+  $(document).on('ajax:success', '#recipe-form', function(event) {
+    alert('Recipe updated successfully!');
+    // You can add more JavaScript actions here upon successful update
+  });
+</script>

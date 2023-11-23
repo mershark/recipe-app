@@ -36,6 +36,15 @@ class RecipesController < ApplicationController
     render 'public'
   end
 
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      redirect_to @recipe, notice: 'Recipe was successfully updated.'
+    else
+      render :show
+    end
+  end
+
   private
 
   def recipe_params

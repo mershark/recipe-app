@@ -10,7 +10,7 @@ development:
   database: recipe_app_development
   host: localhost
   username: postgres
-  password: 'Goodmorning123.'
+  password: 'password'
 
 test:
   <<: *default

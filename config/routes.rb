@@ -6,5 +6,5 @@ Rails.application.routes.draw do
 
   get '/public_recipes', to: 'recipes#public'
   resources :foods, only: [:index, :new, :create, :destroy]
-  resources :recipes, only: [:index, :show, :new, :create, :destroy]
+  resources :recipes
 end

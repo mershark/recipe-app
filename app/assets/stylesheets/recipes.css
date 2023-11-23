@@ -90,3 +90,22 @@
   background: darkcyan;
   color: white;
 }
+
+#public-status-submit {
+  display: none;
+}
+
+#recipe-show-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#recipe-header {
+  text-align: center;
+}
+
+#recipe-show-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
