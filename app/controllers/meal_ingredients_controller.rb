@@ -22,14 +22,14 @@ class MealIngredientsController < ApplicationController
 
     if recipe_food.save
       flash[:success] = 'Added successfully'
-      redirect_to recipe_path(recipe)
+      redirect_to recipe_path(recipe), format: :turbo_stream
     else
       flash[:error] = 'Failed to add ingredient'
       render 'new'
     end
   end
 
-  def modify
+  def update
     recipe_food = RecipeFood.find(params[:id])
     recipe_food.update(quantity: params[:recipe_food][:quantity])
 
@@ -38,12 +38,10 @@ class MealIngredientsController < ApplicationController
   end
 
   def destroy
-    @recipe_food = RecipeFood.find(params[:id])
-    if @recipe_food.destroy
-      flash[:notice] = 'Successfully deleted.'
-    else
-      flash[:alert] = 'Delete Failed.'
-    end
-    redirect_to recipe_path(@recipe_food.recipe)
+    recipe_food = RecipeFood.find(params[:id])
+    recipe_food.destroy
+
+    flash[:success] = 'Ingredient removed successfully'
+    redirect_to recipe_path(recipe_food.recipe)
   end
 end
