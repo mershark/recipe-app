@@ -4,13 +4,13 @@ RSpec.feature 'Recipes', type: :feature do
   include ActionView::Helpers::NumberHelper
 
   let(:user) { create(:user) }
-  let(:recipe) { create(:recipe, user: user) }
+  let(:recipe) { create(:recipe, user:) }
   let(:food) { create(:food) }
 
   before { login_as(user, scope: :user) }
 
   scenario 'User views the general shopping list page' do
-    recipe_food = create(:recipe_food, recipe: recipe, food: food, quantity: '2 kg')
+    recipe_food = create(:recipe_food, recipe:, food:, quantity: '2 kg')
 
     visit general_shopping_list_recipe_path(recipe)
 
