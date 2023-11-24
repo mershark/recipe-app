@@ -37,6 +37,13 @@
   background: lightblue;
 }
 
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
 .recipe-form {
   padding-bottom: 30px;
 }
@@ -89,4 +96,174 @@
   border: 1px solid lightgray;
   background: darkcyan;
   color: white;
+}
+
+#public-status-submit {
+  display: none;
+}
+
+#recipe-show-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#recipe-header {
+  text-align: center;
+}
+
+#recipe-show-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: green;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px green;
+}
+
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round::before {
+  border-radius: 50%;
+}
+
+#recipe-form.edit_recipe {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Style for the main recipe display container */
+#recipe-display-container {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Style for the recipe title */
+#recipe-title {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Style for the recipe display box */
+#recipe-display-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Style for recipe information */
+.recipe-info {
+  text-align: left;
+}
+
+/* Style for the action buttons container */
+.action-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 4px solid black;
+  padding-bottom: 20px;
+}
+
+/* Style for the custom button */
+.custom-button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* Style for the food section */
+.food-section {
+  margin-top: 20px;
+}
+
+/* Style for the custom table */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Style for the table header */
+.table-header {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Style for the table data cells */
+.table-data {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+/* Style for the action button (Modify) */
+.action-button {
+  background-color: #000;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the remove button */
+.custom-button-danger {
+  background-color: red;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the modify form */
+.modify-form {
+  display: none;
+  margin-top: 10px;
 }
