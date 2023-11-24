@@ -28,10 +28,10 @@ header {
   display: block;
 }
 
-.nav ul ul li a {
-  background: lightblue;
-}
-
 .nav ul li a {
   padding: 10px 20px;
+}
+
+.nav ul ul li a {
+  background: lightblue;
 }
