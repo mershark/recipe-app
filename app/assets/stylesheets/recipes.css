@@ -244,6 +244,11 @@ input:checked + .slider::before {
   text-align: left;
 }
 
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
 /* Style for the action button (Modify) */
 .action-button {
   background-color: #000;
@@ -254,7 +259,7 @@ input:checked + .slider::before {
 }
 
 /* Style for the remove button */
-.custom-button-danger {
+.remove-button {
   background-color: red;
   color: #fff;
   padding: 5px 10px;

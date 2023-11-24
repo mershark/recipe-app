@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   
   resources :recipes do
     resources :meal_ingredients, only: [:new, :create, :destroy, :edit, :update], as: :modify_meal_ingredient
-    resources :recipe_foods, only: [:create, :destroy, :update]
+    resources :recipe_foods, only: [:create, :destroy, :update], controller: 'meal_ingredients'
     member do
       match 'general_shopping_list', to: 'recipes#general_shopping_list', via: [:get, :post]
     end

@@ -47,14 +47,17 @@
                 <%= number_to_currency(recipe_food.value, unit: "$") %>
               </td>
               <td class="table-data">
-                <button class="action-button">Modify</button>
-                <%= link_to 'Remove', recipe_recipe_food_path(@recipe, recipe_food), data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'custom-button custom-button-danger' %>
-                <div class="modify-form" style="display: none;">
-                  <%= form_for recipe_food, url: recipe_recipe_food_path(@recipe, recipe_food), method: :patch do |f| %>
+
+                <div class="modify-form" style="display: none;" id="modify-form-<%= @recipe.id %>-<%= recipe_food.id %>">
+                  <%= form_for recipe_food, url: recipe_recipe_food_path(@recipe, recipe_food), method: :patch, remote: true, html: { id: "modify-form-#{recipe_food.id}" } do |f| %>
                     <%= f.label :quantity %>
-                    <%= f.text_field :quantity, value: recipe_food.quantity %>
+                    <%= f.text_field :quantity, value: recipe_food.quantity, name: 'recipe_food[quantity]' %>
                     <%= f.submit 'Update', class: 'modify-submit' %>
                   <% end %>
+                </div>
+                <div class="button-container">
+                  <button class="action-button" data-recipe-id="<%= @recipe.id %>" data-food-id="<%= recipe_food.id %>">Modify</button>
+                  <%= button_to 'Remove', recipe_recipe_food_path(@recipe, recipe_food), method: :delete, data: { confirm: 'Are you sure?' }, class: 'remove-button' %>
                 </div>
               </td>
             </tr>
