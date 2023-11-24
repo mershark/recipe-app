@@ -6,6 +6,8 @@
 @import "add_new_food";
 @import "recipes";
 @import "public_recipes";
+@import "add_new_ingredient";
+@import "general_shopping_list";
 
 a {
   text-decoration: none;

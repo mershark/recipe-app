@@ -1,0 +1,47 @@
+/* Style for the form container */
+.add-ingredient-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+/* Style for the form title */
+.form-title {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+/* Style for the form inputs */
+.form-input {
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+/* Style for the dropdown */
+.ingredient-dropdown {
+  height: 40px;
+  width: 500px;
+}
+
+/* Style for the quantity input */
+.quantity-input {
+  width: 500px;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+/* Style for the "Create Ingredient" button */
+.ingredient-buttons {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  margin-bottom: 20px;
+  width: 500px;
+}

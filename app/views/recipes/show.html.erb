@@ -1,32 +1,73 @@
-<div id="recipe-show-container">
-  <h1 id="recipe-header"><%= @recipe.name %></h1>
-  <div id="recipe-show-box">
-    <div>
+<div id="recipe-display-container">
+  <h1 id="recipe-title"><%= @recipe.name %></h1>
+  <div id="recipe-display-box">
+    <div class="recipe-info">
       <p>Preparation Time: <%= @recipe.preparation_time %> minutes</p>
       <p>Cooking Time: <%= @recipe.cooking_time %> minutes</p>
-      <p>Description: <%= @recipe.description %></p>  
+      <p>Description: <%= @recipe.description %></p>
     </div>
     <div>
       <% if current_user == @recipe.user || @recipe.public %>
         <%= form_for @recipe, url: recipe_path(@recipe), method: :patch, remote: true, html: { id: 'recipe-form' } do |f| %>
           <%= f.label :public, 'Public' %>
-          <%= f.check_box :public, id: 'public-checkbox' %>
+          <label class="switch">
+            <%= f.check_box :public, id: 'public-checkbox' %>
+            <span class="slider round"></span>
+          </label>
           <%= f.submit 'Save', id: 'public-status-submit' %>
         <% end %>
       <% end %>
     </div>
   </div>
+
+  <div class="action-buttons">
+    <%= link_to "Generate Shopping List", general_shopping_list_recipe_path(@recipe), method: :post, class: "custom-button" %>
+    <%= link_to "Add Ingredients", new_recipe_modify_meal_ingredient_path(@recipe), method: :get, class: "custom-button" %>
+  </div>
+
+  <section class="food-section">
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th class="table-header">Food</th>
+          <th class="table-header">Quantity</th>
+          <th class="table-header">Value</th>
+          <th class="table-header">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @recipe_foods.present? %>
+          <% @recipe_foods.each do |recipe_food| %>
+            <tr>
+              <td class="table-data"><%= recipe_food.food.name %></td>
+              <td class="table-data">
+                <%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %>
+              </td>
+              <td class="table-data">
+                <%= number_to_currency(recipe_food.value, unit: "$") %>
+              </td>
+              <td class="table-data">
+                <button class="action-button">Modify</button>
+                <%= link_to 'Remove', recipe_recipe_food_path(@recipe, recipe_food), data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: 'custom-button custom-button-danger' %>
+                <div class="modify-form" style="display: none;">
+                  <%= form_for recipe_food, url: recipe_recipe_food_path(@recipe, recipe_food), method: :patch do |f| %>
+                    <%= f.label :quantity %>
+                    <%= f.text_field :quantity, value: recipe_food.quantity %>
+                    <%= f.submit 'Update', class: 'modify-submit' %>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan="4">No Ingredients Available Now, Add Some!</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </section>
 </div>
 
-
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script>
-  $(document).on('change', '#public-checkbox', function() {
-    $('#public-status-submit').click();
-  });
-
-  $(document).on('ajax:success', '#recipe-form', function(event) {
-    alert('Recipe updated successfully!');
-    // You can add more JavaScript actions here upon successful update
-  });
-</script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<%= javascript_include_tag "recipes" %>
