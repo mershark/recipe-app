@@ -17,7 +17,7 @@ class MealIngredientsController < ApplicationController
     food = Food.find(params[:recipe_food][:food])
     quantity = params[:recipe_food][:quantity]
 
-    recipe_food = RecipeFood.new(food:, recipe:, quantity:)
+    recipe_food = RecipeFood.new(:food, :recipe, :quantity)
     recipe_food.calculate_value
 
     if recipe_food.save
