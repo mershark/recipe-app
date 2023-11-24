@@ -10,15 +10,13 @@ development:
   database: recipe_app_development
   host: localhost
   username: postgres
-  password: 'password'
+  password: 'Goodmorning123.'
 
 test:
   <<: *default
-  # database: recipe_app_test
-  database: recipe_app_development
-  host: localhost
+  database: recipe_app_test
   username: postgres
-  password: 'password'
+  password: 'Goodmorning123.'
 
 production:
   <<: *default
