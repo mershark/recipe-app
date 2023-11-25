@@ -1,0 +1,26 @@
+<div class="shopping-list-container">
+  <h3 class="shopping-list-title">Shopping list</h3>
+  <div class="shopping-list-amount">
+    <p>Amount of food items to buy: <%= @needed_items.length %></p>
+    <p>Total value of food needed: <%= number_to_currency(@needed_items.sum { |item| item[1] * item[2] }, unit: "$") %></p>
+  </div>
+
+  <table class="shopping-list-table">
+    <thead>
+      <tr>
+        <th class="shopping-list-header">Food</th>
+        <th class="shopping-list-header">Quantity</th>
+        <th class="shopping-list-header">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @needed_items.each do |needed_item| %>
+        <tr>
+          <td class="shopping-list-data"><%= needed_item[0] %></td>
+          <td class="shopping-list-data"><%= needed_item[1] %> <%= needed_item[3] %></td>
+          <td class="shopping-list-data"><%= number_to_currency(needed_item[1] * needed_item[2], unit: "$") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

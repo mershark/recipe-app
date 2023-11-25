@@ -1,0 +1,20 @@
+<div class="add-ingredient-form-container">
+  <h4 class="form-title">Add Ingredient(s)</h4>
+  <%= form_with model: [@recipe, @recipe_food], url: recipe_modify_meal_ingredient_index_path(@recipe), method: :post, local: true do |form| %>
+    <div class="form-input noBorder">    
+      <%= form.collection_select :food, @foods, :id, :name, { prompt: 'Pick ingredient...' }, class: 'ingredient-dropdown', style: 'height:40px;' %>
+
+    </div>
+    <div class="form-input noBorder">
+      <%= form.text_field :quantity, placeholder: 'Enter quantity', required: true, class: 'quantity-input' %>
+    </div>
+    <div>
+      <%= form.submit "Create Ingredient", class: "ingredient-buttons" %>
+    </div>
+    <div>
+      <% if current_user == @recipe.user %>
+        <%= link_to "Add Food", new_food_path, class: "ingredient-buttons", method: :get %>
+        <% end %>
+      <% end %>
+    </div>
+</div>

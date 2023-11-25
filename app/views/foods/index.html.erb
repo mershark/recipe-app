@@ -1,0 +1,31 @@
+<h3 class="food-page-title">Foods Page</h3>
+<div class="add-food-container">
+  <%= link_to "Add Food", new_food_path, method: :post, class: "add-food-button" %>
+</div>
+</div>
+<table class="food-table">
+  <thead>
+    <tr>
+      <th class="food-input-title" >Quantity</th>
+      <th class="food-input-title" >Food</th>
+      <th class="food-input-title" >Measurement unit</th>
+      <th class="food-input-title">Unit price</th>
+      <th class="food-input-title">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <td class="food-input"><%= food.quantity %></td>
+        <td class="food-input"><%= food.name %></td>
+        <td class="food-input"><%= food.measurement_unit %></td>
+        <td class="food-input"><%= food.price %></td>
+        <td class="food-input">
+          <% if food.user == current_user %>
+            <%= link_to 'Delete', food_path(food), data: { turbo_method: :delete, confirm: 'Please confirm deletion?' }, class: "delete" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

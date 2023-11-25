@@ -1,0 +1,41 @@
+/* Style for the shopping list container */
+.shopping-list-container {
+  margin-top: 20px;
+}
+
+/* Style for the shopping list title */
+.shopping-list-title {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Style for the shopping list amount section */
+.shopping-list-amount {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Style for the shopping list table */
+.shopping-list-table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+/* Style for the shopping list table headers */
+.shopping-list-header {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Style for the shopping list table data cells */
+.shopping-list-data {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
